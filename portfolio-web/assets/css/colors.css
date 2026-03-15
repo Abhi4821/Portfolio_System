@@ -1,0 +1,33 @@
+/* COLOR SYSTEM */
+
+/* LIGHT THEME */
+:root {
+    --bg-color: #ffffff;
+    --sidebar-bg: #ccd1dcd7;
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+    --border-color: #e5e7eb;
+    --primary-color: #6366f1;
+    --primary-hover: #4f46e5;
+    --card-bg: #ccd1dcd7;
+}
+
+/* DARK THEME */
+.dark-mode {
+    --bg-color: #0f172a;
+    --sidebar-bg: #020617;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --border-color: #1e293b;
+    --primary-color: #6366f1;
+    --primary-hover: #4f46e5;
+    --card-bg: #020617;
+}
+
+.dark-mode .skill-card:hover,
+.dark-mode .project-card:hover,
+.dark-mode .resume-viewer:hover,
+.dark-mode .sidebar:hover,
+.dark-mode .top-navbar:hover{
+    box-shadow:0 10px 30px rgba(0,0,0,0.6);
+}

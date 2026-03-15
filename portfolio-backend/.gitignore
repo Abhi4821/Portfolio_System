@@ -1,0 +1,36 @@
+# ===== Secrets =====
+.env
+.env.*
+
+# ===== Maven / Build =====
+target/
+build/
+dist/
+
+# ===== Uploads =====
+uploads/
+portfolio_uploads/
+
+# ===== Logs =====
+*.log
+logs/
+
+# ===== IntelliJ IDEA =====
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# ===== Eclipse / STS =====
+.classpath
+.project
+.settings/
+.springBeans
+.sts4-cache
+
+# ===== VS Code =====
+.vscode/
+
+# ===== OS =====
+.DS_Store
+Thumbs.db

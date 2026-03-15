@@ -1,0 +1,186 @@
+/* ===============================
+GLOBAL LAYOUT
+================================ */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===============================
+SIDEBAR
+================================ */
+
+.sidebar {
+    margin: 5px;
+    width: 300px;
+    height: calc(100vh - 10px);
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    border-radius: 35px;
+    background: var(--sidebar-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    /* smooth animation */
+    transition:
+        transform .35s cubic-bezier(.25, .8, .25, 1),
+        box-shadow .35s ease,
+        background .35s ease;
+    will-change: transform;
+}
+
+
+.sidebar:hover {
+    transform:scale(1.02) translateY(-4px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+}
+
+.dark-mode .sidebar:hover {
+    box-shadow: 0 20px 45px rgba(245, 242, 242, 0.6);
+}
+
+
+/* ===============================
+MAIN CONTENT
+================================ */
+
+
+.main-content {
+    margin-left: 315px;
+    width: calc(100% - 300px);
+}
+
+/* ===============================
+BANNER
+================================ */
+
+.banner-section {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 20px;
+    /* padding-top: 2px;  */
+
+    z-index: 1;
+    border-bottom:1px solid var(--border-color);
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    transition: transform .8s cubic-bezier(.25, .8, .25, 1),
+        box-shadow .6s ease;
+    will-change: transform;
+}
+
+/* hover zoom effect */
+.banner-section:hover .banner-image {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.75);
+
+}
+
+.dark-mode .banner-section:hover .banner-image {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(233, 230, 230, 0.8);
+}
+
+
+
+
+/* NAVBAR */
+.top-navbar {
+    position: sticky;
+    top: 0;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+
+    z-index: 1000;
+
+    background: transparent;
+    transition: all .35s ease;
+}
+
+/* navbar hover shadow */
+.top-navbar:hover {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.35);
+}
+
+.dark-mode .top-navbar:hover {
+    box-shadow: 0 5px 20px hsla(0, 20%, 99%, 0.35);
+}
+
+
+
+/* NAV MENU */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    font-size: 16px;
+}
+
+
+
+
+/* HERO SECTION */
+.hero-section{
+padding:60px 40px 50px 40px;
+display:flex;
+align-items:center;
+}
+
+
+
+
+/* ABOUT SECTION */
+
+.about-section{
+padding:60px 40px;
+}
+
+
+
+
+
+/* SKILLS SECTION */
+.skills-section{
+padding:60px 40px;
+}
+
+
+
+
+
+/* PROJECT SECTION */
+.projects-section{
+padding:60px 40px;
+}
+
+
+
+
+
+/* CONTACT SECTION */
+.contact-section{
+padding:60px 40px;
+}
+
+
+
+
+
+/* RESUME SECTION */
+.resume-section{
+padding:60px 40px 40px 40px;
+}

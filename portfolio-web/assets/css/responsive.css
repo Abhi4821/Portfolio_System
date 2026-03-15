@@ -1,0 +1,76 @@
+/* ===============================
+TABLET VIEW
+width < 1200px
+================================ */
+@media (max-width:1200px){
+.sidebar{
+    width:220px;
+}
+.main-content{
+    margin-left:220px;
+    width:calc(100% - 220px);
+}
+.skills-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+.projects-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+}
+/* ===============================
+MOBILE VIEW
+width < 768px
+================================ */
+@media (max-width:768px){
+.sidebar{
+    display:none;
+}
+.main-content{
+    margin-left:0;
+    width:100%;
+}
+.banner-section{
+    height:160px;
+}
+.top-navbar{
+    padding:0 20px;
+}
+.nav-menu{
+    gap:15px;
+}
+.hero-section{
+    padding:60px 20px;
+}
+.about-section,
+.skills-section,
+.projects-section,
+.contact-section,
+.resume-section{
+    padding:60px 20px;
+}
+.skills-grid{
+    grid-template-columns:1fr;
+}
+.projects-grid{
+    grid-template-columns:1fr;
+}
+.hero-title{
+    font-size:30px;
+}
+}
+/* ===============================
+SMALL MOBILE
+width < 480px
+================================ */
+@media (max-width:480px){
+.hero-title{
+    font-size:26px;
+}
+.hero-description{
+    font-size:14px;
+}
+.btn{
+    padding:8px 16px;
+    font-size:14px;
+}
+}

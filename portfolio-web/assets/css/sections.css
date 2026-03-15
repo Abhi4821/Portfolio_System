@@ -1,0 +1,211 @@
+/* ===============================
+ABOUT SECTION
+================================ */
+
+.about-text {
+    max-width: 700px;
+    line-height: 1.7;
+    font-size: 16px;
+    color: #444;
+}
+
+/* ===============================
+SKILL CARD
+================================ */
+
+
+.skills-grid .skill-card {
+    background: var(--card-bg);
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.skill-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.skill-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* hover */
+
+
+
+.skill-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.75);
+}
+
+.dark-mode .skill-card:hover {
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.52);
+}
+
+/* ===============================
+PROJECT CARD
+================================ */
+
+.project-card {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    transition: 0.3s;
+}
+
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.project-content {
+    padding: 20px;
+}
+
+.project-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.project-links {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+}
+
+.project-links a {
+    font-size: 14px;
+    text-decoration: none;
+    color: #4f46e5;
+}
+
+/* hover */
+
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.75);
+}
+
+.dark-mode .project-card:hover {
+    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.52);
+}
+
+
+
+
+
+
+/* ===============================
+RESUME VIEWER
+================================ */
+
+.resume-viewer {
+    width: 100%;
+    height: 500px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card-bg);
+}
+
+
+/* ===============================
+CARD LOADING PLACEHOLDER
+================================ */
+
+.loading-card {
+    height: 150px;
+    background: #f2f2f2;
+    border-radius: 8px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.6;
+    }
+}
+
+section {
+    /* min-height:100vh; */
+    padding: 80px 40px;
+}
+
+
+/* ===============================
+GLOBAL CARD HOVER SYSTEM
+================================ */
+
+.skill-card,
+.project-card,
+.resume-viewer {
+    transition: all 0.3s ease;
+}
+
+.skill-card:hover,
+.project-card:hover,
+
+
+/* light theme */
+.resume-viewer:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.55);
+}
+
+/* dark theme */
+.dark-mode .resume-viewer:hover {
+    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.52);
+}
+
+section {
+    padding: 80px 40px;
+}
+
+
+.contact-alert {
+    display: none;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.contact-alert.success {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #22c55e;
+}
+
+.contact-alert.error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #ef4444;
+}
+
+.dark-mode .contact-alert.success {
+    background: #052e16;
+    color: #4ade80;
+}
+
+.dark-mode .contact-alert.error {
+    background: #450a0a;
+    color: #f87171;
+}

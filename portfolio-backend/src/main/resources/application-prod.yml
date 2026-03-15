@@ -1,0 +1,28 @@
+#
+#spring:
+#  datasource:
+#    url: ${PROD_DB_URL}
+#    username: ${PROD_DB_USERNAME}
+#    password: ${PROD_DB_PASSWORD}
+#    driver-class-name: oracle.jdbc.OracleDriver
+#
+#  jpa:
+#    show-sql: false
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.OracleDialect
+#
+#  mail:
+#    host: smtp.gmail.com
+#    port: 587
+#    username: ${MAIL_USERNAME}
+#    password: ${MAIL_PASSWORD}
+#
+#jwt:
+#  secret: ${JWT_SECRET}
+#
+#file:
+#  upload:
+#    root: oracle-object-storage
+#  public:
+#    base-url: https://objectstorage.<region>.oraclecloud.com

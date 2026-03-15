@@ -1,0 +1,255 @@
+/* PROFILE */
+.profile-box {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    transition: .3s;
+    margin-bottom: 15px;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+.dark-mode .profile-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 1px 3px #f9f8f8ec;
+}
+
+.dark-mode .profile-image {
+    box-shadow: 0 1px 3px #f9f8f8ec;
+}
+
+.profile-name {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.profile-title {
+    font-size: 14px;
+    color: #777;
+}
+
+
+
+/* SIDEBAR CONTACT */
+.sidebar-contact {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+
+.contact-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.contact-item a {
+    font-size: 14px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: .3s;
+}
+
+.contact-item a:hover {
+    color: var(--primary-color);
+}
+
+.contact-item a:hover {
+    color: var(--primary-color);
+}
+
+.contact-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    filter: brightness(0);
+}
+/* Dark mode */
+.dark-mode .contact-icon {
+    filter: brightness(0) invert(1);
+}
+
+
+
+
+/* SOCIAL ICONS */
+.sidebar-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 10px;
+}
+
+.sidebar-social img {
+
+    width: 26px;
+    height: 26px;
+
+    object-fit: contain;
+
+    transition: .3s;
+
+    opacity: 0.85;
+
+}
+
+.sidebar-social img:hover {
+    transform: translateY(-4px) scale(1.15);
+    opacity: 1
+}
+
+
+
+
+
+/* NAV LINKS */
+.nav-link {
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--text-primary);
+    position: relative;
+    transition: .3s;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: .3s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: var(--primary-color);
+}
+
+/* navbar when covering banner */
+
+.nav-solid {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.dark-mode .nav-solid {
+    background: rgba(2, 6, 23, 0.7);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.20);
+}
+
+
+
+
+
+/* Toggle */
+.theme-toggle img {
+    width: 24px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.theme-toggle img:hover {
+    transform: rotate(360deg) scale(1.1);
+}
+
+/* HERO */
+HERO
+================================ */
+.hero-title {
+    font-size: 52px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.hero-description {
+    font-size: 16px;
+    max-width: 600px;
+    margin-bottom: 10px;
+}
+
+/* BUTTONS */
+.btn {
+    padding: 10px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    margin-right: 15px;
+    display: inline-block;
+}
+
+.primary-btn {
+    background: #4f46e5;
+    color: white;
+}
+
+.outline-btn {
+    border: 1px solid #4f46e5;
+    color: #4f46e5;
+}
+
+/* SECTION TITLES */
+.section-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+/* SKILLS GRID */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+
+/* PROJECT GRID */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* CONTACT FORM */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
