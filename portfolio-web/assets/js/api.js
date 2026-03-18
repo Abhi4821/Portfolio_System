@@ -1,9 +1,12 @@
 /* ===============================BASE API URL================================ */
 
 // backend server
-const API_BASE = "http://192.168.29.234:8081";
-// const API_BASE = "http://10.0.2.2:8081/";
+// const API_BASE = "http://192.168.29.234:8081";
 
+// const API_BASE = "http://10.0.2.2:8081/";
+// const API_BASE = "http://13.126.38.72:8080";
+const API_BASE = "https://abhishek-portfolio.duckdns.org";
+ 
 // API endpoints
 const BASE_URL = `${API_BASE}/api/usr`;
 

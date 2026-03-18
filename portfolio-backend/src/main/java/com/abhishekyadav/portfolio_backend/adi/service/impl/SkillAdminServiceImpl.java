@@ -3,6 +3,7 @@ package com.abhishekyadav.portfolio_backend.adi.service.impl;
 import com.abhishekyadav.portfolio_backend.adi.service.SkillAdminService;
 import com.abhishekyadav.portfolio_backend.common.entity.SkillEntity;
 import com.abhishekyadav.portfolio_backend.common.repository.SkillRepository;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,6 +15,8 @@ import java.util.UUID;
 @Service
 public class SkillAdminServiceImpl implements SkillAdminService {
 
+    @Value("${file.upload-dir}")
+    private String uploadRoot;
     private final SkillRepository skillRepository;
 
     public SkillAdminServiceImpl(SkillRepository skillRepository) {
@@ -37,7 +40,7 @@ public class SkillAdminServiceImpl implements SkillAdminService {
 
     private String saveCertificateAndGetUrl(MultipartFile file) {
         try {
-            String uploadDir = "D:/portfolio_uploads/portfolio_uploads/certificates/";
+            String uploadDir = uploadRoot + "/certificates/";
             Files.createDirectories(Paths.get(uploadDir));
 
             String originalName = file.getOriginalFilename();
@@ -47,7 +50,7 @@ public class SkillAdminServiceImpl implements SkillAdminService {
             Path filePath = Paths.get(uploadDir + fileName);
             Files.write(filePath, file.getBytes());
 
-            return "http://localhost:8081/uploads/certificates/" + fileName;
+            return "/uploads/certificates/" + fileName;
 
         } catch (Exception e) {
             throw new RuntimeException("Certificate upload failed", e);
@@ -59,21 +62,15 @@ public class SkillAdminServiceImpl implements SkillAdminService {
 
         SkillEntity skill = skillRepository.findById(skillId)
                 .orElseThrow(() -> new RuntimeException("Skill not found"));
-        // 1️ certificate file delete
         deleteCertificateFile(skill.getCertificateUrl());
-        // 2️ db delete
         skillRepository.deleteById(skillId);
     }
     private void deleteCertificateFile(String certificateUrl) {
         if (certificateUrl == null || certificateUrl.isBlank()) return;
 
         try {
-            // URL → filename
             String fileName = certificateUrl.substring(certificateUrl.lastIndexOf("/") + 1);
-            // actual disk path
-            Path filePath = Paths.get(
-                    "D:/portfolio_uploads/portfolio_uploads/certificates/" + fileName
-            );
+            Path filePath = Paths.get(uploadRoot + "/certificates/" + fileName);
             Files.deleteIfExists(filePath);
 
         } catch (Exception e) {

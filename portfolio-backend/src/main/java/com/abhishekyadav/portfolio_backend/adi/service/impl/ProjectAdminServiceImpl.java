@@ -4,6 +4,7 @@ package com.abhishekyadav.portfolio_backend.adi.service.impl;
 import com.abhishekyadav.portfolio_backend.adi.service.ProjectAdminService;
 import com.abhishekyadav.portfolio_backend.common.entity.ProjectEntity;
 import com.abhishekyadav.portfolio_backend.common.repository.ProjectRepository;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,6 +15,8 @@ import java.util.UUID;
 
 @Service
 public class ProjectAdminServiceImpl implements ProjectAdminService {
+    @Value("${file.upload-dir}")
+    private String uploadRoot;
     private final ProjectRepository projectRepository;
     public ProjectAdminServiceImpl(ProjectRepository projectRepository) {
         this.projectRepository = projectRepository;
@@ -47,7 +50,8 @@ public class ProjectAdminServiceImpl implements ProjectAdminService {
             return null;
         }
         try {
-            String uploadDir = "D:/portfolio_uploads/portfolio_uploads/projects/";
+//            String uploadDir = "D:/portfolio_uploads/portfolio_uploads/projects/";
+            String uploadDir = uploadRoot + "/projects/";
             Files.createDirectories(Paths.get(uploadDir));
 
             String originalName = image.getOriginalFilename();
@@ -56,7 +60,8 @@ public class ProjectAdminServiceImpl implements ProjectAdminService {
 
             Path filePath = Paths.get(uploadDir + fileName);
             Files.write(filePath, image.getBytes());
-            return "http://localhost:8081/uploads/projects/" + fileName;
+//            return "http://localhost:8081/uploads/projects/" + fileName;
+            return "/uploads/projects/" + fileName;
 
         } catch (Exception e) {
             throw new RuntimeException("Project image upload failed", e);
@@ -79,9 +84,7 @@ public class ProjectAdminServiceImpl implements ProjectAdminService {
         }
         try {
             String fileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
-            Path filePath = Paths.get(
-                    "D:/portfolio_uploads/portfolio_uploads/projects/", fileName
-            );
+            Path filePath = Paths.get(uploadRoot + "/projects/" + fileName);
             System.out.println("Deleting: " + filePath);
             Files.deleteIfExists(filePath);
 

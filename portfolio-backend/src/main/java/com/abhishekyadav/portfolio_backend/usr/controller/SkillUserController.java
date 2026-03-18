@@ -11,13 +11,10 @@ import java.util.List;
 @RequestMapping("/api/usr/skills")
 @CrossOrigin
 public class SkillUserController {
-
     private final SkillUserService skillService;
-
     public SkillUserController(SkillUserService skillService) {
         this.skillService = skillService;
     }
-
     @GetMapping
     public List<SkillEntity> getAllSkills() {
         return skillService.getAllSkills();

@@ -12,9 +12,11 @@ public class OtpStore {
     public void saveOtp(String email, String otp) {
         otpMap.put(email, otp);
     }
+
     public String getOtp(String email) {
         return otpMap.get(email);
     }
+
     public void removeOtp(String email) {
         otpMap.remove(email);
     }

@@ -13,7 +13,6 @@ import java.util.Date;
 
 @Component
 public class JwtUtil {
-
     // 24 hours
     @Value("${jwt.expiration}")
     private long EXPIRATION;

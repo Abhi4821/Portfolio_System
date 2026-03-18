@@ -9,6 +9,7 @@ import java.security.SecureRandom;
 public class OtpService {
     private final SecureRandom random = new SecureRandom();
     public String generateOtp() {
-        return String.valueOf(100000 + random.nextInt(900000));
+        return String.valueOf(
+                100000 + random.nextInt(900000));
     }
 }

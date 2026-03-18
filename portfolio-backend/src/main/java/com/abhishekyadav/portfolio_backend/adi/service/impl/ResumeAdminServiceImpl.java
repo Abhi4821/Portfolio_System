@@ -4,6 +4,7 @@ package com.abhishekyadav.portfolio_backend.adi.service.impl;
 import com.abhishekyadav.portfolio_backend.adi.service.ResumeAdminService;
 import com.abhishekyadav.portfolio_backend.common.entity.ResumeEntity;
 import com.abhishekyadav.portfolio_backend.common.repository.ResumeRepository;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,6 +15,8 @@ import java.util.UUID;
 
 @Service
 public class ResumeAdminServiceImpl implements ResumeAdminService {
+    @Value("${file.upload-dir}")
+    private String uploadRoot;
     private final ResumeRepository resumeRepository;
 
     public ResumeAdminServiceImpl(ResumeRepository resumeRepository) {
@@ -23,11 +26,9 @@ public class ResumeAdminServiceImpl implements ResumeAdminService {
 
     public ResumeEntity uploadResume(MultipartFile file, ResumeEntity resume) {
         try {
-            // same approach as project image
-            String uploadDir = "D:/portfolio_uploads/portfolio_uploads/resume/";
+            String uploadDir = uploadRoot + "/resume/";
             Files.createDirectories(Paths.get(uploadDir));
 
-            // 1️ check existing resume
             ResumeEntity existing = resumeRepository.findAll()
                     .stream()
                     .findFirst()
@@ -47,7 +48,7 @@ public class ResumeAdminServiceImpl implements ResumeAdminService {
             Files.write(filePath, file.getBytes());
 
             //  DB me sirf path / URL
-            resume.setResumeUrl("http://localhost:8081/uploads/resume/" + fileName);
+            resume.setResumeUrl("/uploads/resume/" + fileName);
             resume.setUploadedAt(LocalDateTime.now());
 
             return resumeRepository.save(resume);
@@ -63,9 +64,7 @@ public class ResumeAdminServiceImpl implements ResumeAdminService {
 
         ResumeEntity resume = resumeRepository.findById(resumeId)
                 .orElseThrow(() -> new RuntimeException("Resume not found"));
-        // 1️ resume file delete
         deleteResumeFile(resume.getResumeUrl());
-        // 2️ db delete
         resumeRepository.deleteById(resumeId);
     }
 
@@ -78,9 +77,7 @@ public class ResumeAdminServiceImpl implements ResumeAdminService {
             // URL → filename
             String fileName = resumeUrl.substring(resumeUrl.lastIndexOf("/") + 1);
             // actual disk path
-            Path filePath = Paths.get(
-                    "D:/portfolio_uploads/portfolio_uploads/resume/" + fileName
-            );
+            Path filePath = Paths.get(uploadRoot + "/resume/" + fileName);
             Files.deleteIfExists(filePath);
         } catch (Exception e) {
             throw new RuntimeException("Failed to delete resume file", e);
