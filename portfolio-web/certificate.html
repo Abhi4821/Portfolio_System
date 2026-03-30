@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Certificate Viewer</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+
+        img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #ff1a1a;
+        }
+    </style>
+</head>
+
+<body>
+
+    <img id="certificateImage" src="" alt="Certificate">
+
+    <button onclick="window.close()">Close</button>
+
+    <script>
+        // URL se image path lena
+        const params = new URLSearchParams(window.location.search);
+        const img = params.get("img");
+
+        const imageElement = document.getElementById("certificateImage");
+
+        if (img) {
+            imageElement.src = img;
+        } else {
+            imageElement.alt = "No certificate found";
+        }
+    </script>
+
+</body>
+
+</html>

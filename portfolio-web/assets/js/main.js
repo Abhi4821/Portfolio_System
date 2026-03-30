@@ -59,3 +59,19 @@ window.addEventListener("scroll", () => {
         navbar.classList.remove("nav-solid");
     }
 });
+
+
+const toggleBtn = document.getElementById("menu-toggle");
+const sidebar = document.querySelector(".sidebar");
+
+toggleBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("active");
+    
+});
+
+// const sidebar = document.querySelector(".sidebar");
+
+// // MAIN CONTENT CLICK → sidebar close
+document.querySelector(".main-content").addEventListener("click", () => {
+    // sidebar.classList.remove("active");
+});

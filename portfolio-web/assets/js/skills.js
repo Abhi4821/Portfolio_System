@@ -3,9 +3,7 @@
 document.addEventListener("DOMContentLoaded", loadSkills);
 
 async function loadSkills() {
-
     const grid = document.getElementById("skills-grid");
-
     if (!grid) return;
 
     grid.innerHTML = "";
@@ -39,15 +37,10 @@ async function loadSkills() {
 
         // certificate viewer
         card.addEventListener("click", () => {
-
             if (skill.certificateUrl) {
-
                 const url = `certificate.html?img=${encodeURIComponent(skill.certificateUrl)}`;
-
                 window.open(url, "_blank");
-
             }
-
         });
 
         grid.appendChild(card);

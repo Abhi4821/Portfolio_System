@@ -18,7 +18,7 @@ projects.forEach(project => {
     ? project.projectImageUrl 
     : "assets/images/projects/default-project.webp";
     card.innerHTML = `
-        <img src="${image}" alt="${project.projectTitle}">
+        <img src="${image}" alt="${project.projectTitle}" class="project-image">
         <div class="project-content">
             <h3 class="project-title">${project.projectTitle}</h3>
             <p>${project.projectDescription || ""}</p>
@@ -28,6 +28,13 @@ projects.forEach(project => {
             </div>
         </div>
     `;
+    
+    card.querySelector(".project-image").addEventListener("click", () => {
+        const url = `certificate.html?img=${encodeURIComponent(image)}`;
+        window.open(url, "_blank");
+    });
+
+    // grid.appendChild(card);
     grid.appendChild(card);
 });
 }
