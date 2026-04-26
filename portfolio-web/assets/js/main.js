@@ -60,13 +60,15 @@ window.addEventListener("scroll", () => {
     }
 });
 
-
+const overlay = document.querySelector(".overlay");
 const toggleBtn = document.getElementById("menu-toggle");
 const sidebar = document.querySelector(".sidebar");
 
 toggleBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     sidebar.classList.toggle("active");
+    overlay.classList.toggle("active");
+    document.body.classList.toggle("no-scroll");
     
 });
 
@@ -78,4 +80,5 @@ sidebar.addEventListener("click", (e) => {
 // Screen par kahin bhi click → sidebar close
 document.addEventListener("click", () => {
     sidebar.classList.remove("active");
+    overlay.classList.remove("active");
 });
