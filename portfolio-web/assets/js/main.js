@@ -64,14 +64,18 @@ window.addEventListener("scroll", () => {
 const toggleBtn = document.getElementById("menu-toggle");
 const sidebar = document.querySelector(".sidebar");
 
-toggleBtn.addEventListener("click", () => {
+toggleBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
     sidebar.classList.toggle("active");
     
 });
 
-// const sidebar = document.querySelector(".sidebar");
 
-// // MAIN CONTENT CLICK → sidebar close
-document.querySelector(".main-content").addEventListener("click", () => {
-    // sidebar.classList.remove("active");
+// Sidebar ke andar click → close nahi hona chahiye
+sidebar.addEventListener("click", (e) => {
+    e.stopPropagation();
+});
+// Screen par kahin bhi click → sidebar close
+document.addEventListener("click", () => {
+    sidebar.classList.remove("active");
 });
