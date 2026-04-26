@@ -93,9 +93,7 @@ width < 768px
 
     .sidebar.active {
         left: 0;
-        body.no-scroll {
-          overflow: hidden;
-        }
+        
     }
 
     .main-content {
