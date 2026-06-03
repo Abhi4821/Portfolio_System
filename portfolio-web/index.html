@@ -17,6 +17,30 @@
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/sections.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <style>
+        .typed-text {
+            background: linear-gradient(90deg, #a855f7, #6366f1, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1em;
+            background: #a855f7;
+            margin-left: 2px;
+            vertical-align: middle;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
 </head>
 
 <body>
@@ -27,7 +51,7 @@
             <div class="profile-box">
                 <img src="assets/images/profile/profile.png" class="profile-image" alt="Abhishek Yadav Profile">
                 <h2 class="profile-name">Abhishek Yadav</h2>
-                <p class="profile-title" id="typing-title"></p>
+                <p class="profile-title">Backend Developer | Cloud Development</p>
             </div>
 
             <div class="sidebar-contact">
@@ -118,15 +142,15 @@
             <section id="hero" class="hero-section">
                 <div class="hero-content">
                     <h1 class="hero-title">
-                        Hello, I'm <span>Abhishek Yadav</span>
+                        Hello, I'm <span class="typed-text" id="typed-text"></span><span class="cursor"></span>
                     </h1>
-                    <p class="hero-subtitle">Backend Developer &amp; Cloud Development</p>
                     <p class="hero-description">
                         Passionate about building scalable, production-ready applications.
                         Proficient in Java, Spring Boot, REST APIs, and AWS Cloud.
+                        I like turning complex problems into clean, efficient solutions.
                     </p>
                     <div class="hero-buttons">
-                        <a href="#contact" class="btn primary-btn">Hire Me</a>
+                        <a href="#contact" class="btn primary-btn">Visit Me</a>
                         <a href="#resume" class="btn outline-btn">Download Resume</a>
                     </div>
                 </div>
@@ -136,14 +160,14 @@
             <section id="about" class="about-section">
                 <h2 class="section-title">About Me</h2>
                 <p class="about-text">
-    I am a final-year B.Tech Computer Science student at Galgotias College 
-    of Engineering and Technology (2023–2027), with a strong passion for 
-    building scalable and production-ready software. I specialize in Backend 
-    Development using Java and Spring Boot, Android Development with Kotlin, 
-    and Cloud Infrastructure on AWS with Docker and Kubernetes. I have 
-    hands-on experience designing REST APIs, Microservices architecture, 
-    Database Management, and CI/CD pipelines. I am also an active competitive 
-    programmer, having solved 200+ problems on LeetCode and CodeChef.
+                    I am a final-year B.Tech Computer Science student at Galgotias College
+                    of Engineering and Technology (2023–2027), with a strong passion for
+                    building scalable and production-ready software. I specialize in Backend
+                    Development using Java and Spring Boot, Android Development with Kotlin,
+                    and Cloud Infrastructure on AWS with Docker and Kubernetes. I have
+                    hands-on experience designing REST APIs, Microservices architecture,
+                    Database Management, and CI/CD pipelines. I am also an active competitive
+                    programmer.
                 </p>
             </section>
 
@@ -194,17 +218,17 @@
     <!-- Typing Effect -->
     <script>
         const texts = [
-            // "Abhishek Yadav",
-            "Spring Boot Backend Developer",
-            "Cloud Developer",
-            "Problem Solver"
+            "a Backend Developer",
+            "a Cloud Developer",
+            "a Problem Solver",
+            "a Spring Boot Expert"
         ];
 
         let textIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
 
-        const typingTarget = document.getElementById("typing-title");
+        const typingTarget = document.getElementById("typed-text");
 
         function type() {
             const currentText = texts[textIndex];
