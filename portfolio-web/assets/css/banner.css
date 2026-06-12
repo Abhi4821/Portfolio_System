@@ -25,3 +25,22 @@
   color: transparent;
   margin: 0;
 }
+
+.hero-banner:hover {
+  
+  box-shadow: 0 10px 30px var(--text-primary);
+
+  transform: translateY(-2px);
+  transition: box-shadow 0.3s ease, transform 0.5s ease;
+}
+
+.dark-mode .hero-banner:hover {
+    box-shadow: 0 10px 30px rgba(233, 231, 231, 0.15);
+}
+
+.banner-role {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+}
