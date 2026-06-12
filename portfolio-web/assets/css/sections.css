@@ -8,7 +8,26 @@ ABOUT SECTION
     font-size: 16px;
     color: var(--textprimary);
 }
+.profile-title {
+    max-width: 700px;
+    line-height: 1.7;
+    font-size: 16px;
+    color: var(--textprimary);
+}
 
+.contact-label {
+    max-width: 700px;
+    line-height: 1.7;
+    font-size: 16px;
+    color: var(--textprimary);
+}
+
+.about{
+    max-width: 400px;
+    line-height: 1.7;
+    font-size: 8px;
+    color: var(--textprimary);
+}
 /* ===============================
 SKILL CARD
 ================================ */
