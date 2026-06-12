@@ -6,7 +6,7 @@ ABOUT SECTION
     max-width: 700px;
     line-height: 1.7;
     font-size: 16px;
-    color: #444;
+    color: var(--textprimary);
 }
 
 /* ===============================
