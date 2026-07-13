@@ -3,7 +3,7 @@
 // backend server
 // const API_BASE = "http://192.168.29.234:8081";
 
-const API_BASE = "http://localhost:8080";
+const API_BASE = "http://13.203.66.87:8080";
 // const API_BASE = "http://13.126.38.72:8080";
 // const API_BASE = "https://abhishek-portfolio.duckdns.org";
  
