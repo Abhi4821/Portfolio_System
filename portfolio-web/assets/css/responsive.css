@@ -82,9 +82,8 @@ width < 768px
     .sidebar {
         position: fixed;
         left: -100%;
-        top: 50px;
-        margin-top: 0;
-        
+        margin-top: 50px;
+        top: 0;
         width: 70%;
         height: 100%;
         background: var(--sidebar-bg);
@@ -94,7 +93,9 @@ width < 768px
 
     .sidebar.active {
         left: 0;
-        
+        body.no-scroll {
+          overflow: hidden;
+        }
     }
 
     .main-content {
@@ -113,7 +114,6 @@ width < 768px
         justify-content: space-between;
         overflow: hidden;
         position: sticky;
-        gap: 20px;
         top: 0;
         z-index: 1100;
 
@@ -124,13 +124,20 @@ width < 768px
         display: flex;
         overflow-x: auto;
         white-space: nowrap;
-        gap: 18px;
+        gap: 15px;
+       
+        scroll-behavior: smooth;
+        overflow-x: auto
     }
 
     .nav-menu::-webkit-scrollbar {
-        display: none;
+        height: 6px;   /* horizontal scrollbar height */
     }
 
+    .nav-menu::-webkit-scrollbar-thumb {
+       background: gray;
+       border-radius: 10px;
+    }
     .hero-section {
         padding: 60px 20px;
     }
@@ -156,6 +163,7 @@ width < 768px
         display: block;
         font-size: 28px;
         cursor: pointer;
+        gap: 29px;
         color: var(--text-primary);
     }
 }
@@ -165,7 +173,10 @@ width < 768px
 EXTRA
 ================================ */
 
-
+/* body.no-scroll {
+    overflow: hidden;
+    height: 100%;
+} */
 
 
 .overlay {

@@ -13,5 +13,4 @@ object Routes {
     const val RESUME = "resume"
     const val MESSAGES = "messages"
 
-
 }

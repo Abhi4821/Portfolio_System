@@ -6,7 +6,7 @@ ABOUT SECTION
     max-width: 700px;
     line-height: 1.7;
     font-size: 16px;
-    color: var(--textprimary);
+    color: #444;
 }
 .profile-title {
     max-width: 700px;
@@ -28,6 +28,7 @@ ABOUT SECTION
     font-size: 8px;
     color: var(--textprimary);
 }
+
 /* ===============================
 SKILL CARD
 ================================ */

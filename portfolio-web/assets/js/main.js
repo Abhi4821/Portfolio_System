@@ -60,16 +60,16 @@ window.addEventListener("scroll", () => {
     }
 });
 
-const overlay = document.querySelector(".overlay");
+
 const toggleBtn = document.getElementById("menu-toggle");
 const sidebar = document.querySelector(".sidebar");
+const overlay = document.querySelector(".overlay");
 
 toggleBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     sidebar.classList.toggle("active");
     overlay.classList.toggle("active");
     document.body.classList.toggle("no-scroll");
-    
 });
 
 
@@ -82,3 +82,4 @@ document.addEventListener("click", () => {
     sidebar.classList.remove("active");
     overlay.classList.remove("active");
 });
+
