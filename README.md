@@ -385,7 +385,114 @@ Each table contains:
 ```
 
 ---
+# CI/CD Pipeline
 
+The backend uses **GitHub Actions** to automate the complete CI/CD process.
+
+## Workflow
+
+```text
+Developer Push
+       │
+       ▼
+GitHub Repository
+       │
+       ▼
+GitHub Actions
+       │
+       ├── Checkout Repository
+       ├── Setup JDK 21
+       ├── Build Spring Boot (Maven)
+       ├── Build Docker Image
+       ├── Push Image to Docker Hub
+       └── Deploy to AWS EC2 via SSH
+                    │
+                    ▼
+            Docker Container Restart
+                    │
+                    ▼
+           Spring Boot Backend Live
+```
+
+## CI/CD Features
+
+- Automated build on every push to the `main` branch.
+- Maven build with JDK 21.
+- Docker image creation.
+- Docker image pushed to Docker Hub.
+- Automatic deployment to AWS EC2 using SSH.
+- Existing container is stopped and replaced with the latest version.
+- Environment variables are injected securely using GitHub Secrets.
+- Old Docker images are removed automatically to save disk space.
+
+## GitHub Actions Workflow
+
+The workflow is triggered whenever changes are pushed to:
+
+```text
+portfolio-backend/**
+```
+
+### Build Steps
+
+1. Checkout Repository
+2. Setup Java 21
+3. Build Spring Boot Application
+4. Login to Docker Hub
+5. Build Docker Image
+6. Push Docker Image
+7. SSH into AWS EC2
+8. Pull Latest Docker Image
+9. Stop Existing Container
+10. Start New Container
+11. Clean Old Docker Images
+
+## Required GitHub Secrets
+
+| Secret | Description |
+|---------|-------------|
+| DOCKER_USERNAME | Docker Hub Username |
+| DOCKER_TOKEN | Docker Hub Access Token |
+| EC2_HOST | AWS EC2 Public IP |
+| EC2_USER | Ubuntu User |
+| EC2_SSH_KEY | Private SSH Key |
+| DB_URL | MySQL Database URL |
+| DB_USERNAME | Database Username |
+| DB_PASSWORD | Database Password |
+| MAIL_USERNAME | SMTP Email |
+| MAIL_PASSWORD | SMTP App Password |
+| JWT_SECRET | JWT Secret Key |
+| ADMIN_EMAIL | Admin Email |
+| UPLOAD_DIR | Upload Directory |
+| AWS_ACCESS_KEY | AWS Access Key |
+| AWS_SECRET_KEY | AWS Secret Key |
+| AWS_REGION | AWS Region |
+| AWS_BUCKET_NAME | S3 Bucket Name |
+
+## Deployment Architecture
+
+```text
+Developer
+    │
+    ▼
+GitHub
+    │
+    ▼
+GitHub Actions
+    │
+    ▼
+Docker Hub
+    │
+    ▼
+AWS EC2 (Docker Container)
+    │
+    ▼
+Spring Boot Backend
+    │
+    ├── AWS RDS (MySQL)
+    ├── Amazon S3 (File Storage)
+    └── SMTP (Email Service)
+```
 ## Email Service (SMTP)
 
 Used for:
